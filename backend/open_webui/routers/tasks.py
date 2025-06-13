@@ -711,6 +711,7 @@ async def generate_moa_response(
         template,
         form_data["prompt"],
         form_data["responses"],
+        form_data.get("system"),
     )
 
     payload = {

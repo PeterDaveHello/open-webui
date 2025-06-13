@@ -308,7 +308,7 @@ def query_generation_template(
 
 
 def moa_response_generation_template(
-    template: str, prompt: str, responses: list[str]
+    template: str, prompt: str, responses: list[str], system: str | None = None
 ) -> str:
     def replacement_function(match):
         full_match = match.group(0)
@@ -341,6 +341,7 @@ def moa_response_generation_template(
     responses = "\n\n".join(responses)
 
     template = template.replace("{{responses}}", responses)
+    template = template.replace("{{system}}", system or "")
     return template
 
 

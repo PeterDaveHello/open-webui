@@ -2004,7 +2004,8 @@
 				localStorage.token,
 				message.model,
 				history.messages[message.parentId].content,
-				responses
+				responses,
+				$settings.system
 			);
 
 			if (res && res.ok && res.body && generating) {

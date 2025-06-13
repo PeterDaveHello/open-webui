@@ -964,7 +964,8 @@ export const generateMoACompletion = async (
 	token: string = '',
 	model: string,
 	prompt: string,
-	responses: string[]
+	responses: string[],
+	system?: string
 ) => {
 	const controller = new AbortController();
 	let error = null;
@@ -981,6 +982,7 @@ export const generateMoACompletion = async (
 			model: model,
 			prompt: prompt,
 			responses: responses,
+			system: system,
 			stream: true
 		})
 	}).catch((err) => {
